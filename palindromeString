@@ -1,0 +1,12 @@
+object palindromeString extends App{
+
+	def isPalindrome(s: String) : Boolean = {
+			var output=true;
+			if(!s.equals(s.reverse)){
+				output=false;
+			}
+			output;
+	}
+
+	print(isPalindrome("madam"));
+}
