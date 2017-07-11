@@ -34,3 +34,21 @@ object palindromeString extends App{
 
 	print(isPalindrome("madam"));
 }
+
+// using less variables and more optimized. Loop will not traverse whole string if at any given point it found mismatch.
+object palindromeString extends App{
+
+	def isPalindrome(s: String) : Boolean = {
+			var rev=s.length()-1;
+			var a=0;
+			for(a <- 0 to (s.length()-1)){
+				if(!s.charAt(a).equals(s.charAt(rev))){
+					return false;
+				}
+				rev=rev-1;
+			}
+			return true;
+	}
+
+	print(isPalindrome("12321"));
+}
