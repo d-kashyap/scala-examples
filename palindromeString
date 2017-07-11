@@ -1,8 +1,32 @@
+
+//created by Dipesh Kashyap
+//Last modified on 07/11/2017 (mm/dd/yyyy)
+
+// using in built reverse function
 object palindromeString extends App{
 
 	def isPalindrome(s: String) : Boolean = {
 			var output=true;
 			if(!s.equals(s.reverse)){
+				output=false;
+			}
+			output;
+	}
+
+	print(isPalindrome("madam"));
+}
+
+// without using in built reverse function 
+object palindromeString extends App{
+
+	def isPalindrome(s: String) : Boolean = {
+			var output=true;
+			var rev="";
+			var a=0;
+			for(a <- (s.length()-1) to 0 by -1){
+				rev = rev.concat(s.charAt(a).toString())
+			}
+			if(!s.equals(rev)){
 				output=false;
 			}
 			output;
