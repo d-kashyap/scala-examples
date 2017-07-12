@@ -52,3 +52,47 @@ object palindromeString extends App{
 
 	print(isPalindrome("12321"));
 }
+
+// to check if any sub string of input string is palindrome string
+
+　
+　
+object Hello extends App{
+
+	def containsPalindrome(input: String) : Boolean = {
+
+			var a=0;
+			var flag=false;
+			var s=input.replaceAll("\\s", "")
+			for(a <- 0 to (s.length()-1)){
+				flag=false;
+				var rev=s.length()-1;
+				while(!flag && a<rev-1){
+					if(s.charAt(a).equals(s.charAt(rev))){
+						if(isPalindrome(s.substring(a, rev+1))){
+							return true;
+						}
+					} 
+					if(a==rev-2){
+						flag=true;
+					}
+					rev=rev-1;
+				}
+			}
+			return flag;
+	}
+
+	def isPalindrome(s: String) : Boolean = {
+			var rev=s.length()-1;
+			var a=0;
+			for(a <- 0 to (s.length()-1)){
+				if(!s.charAt(a).equals(s.charAt(rev))){
+					return false;
+				}
+				rev=rev-1;
+			}
+			return true;
+	}
+
+	print(containsPalindrome("MISSION"));
+}
