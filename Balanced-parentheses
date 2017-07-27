@@ -6,35 +6,34 @@ import scala.collection.mutable.Stack
 
 object BalancedParentheses extends App{
 
-	def isBalanced(s: String) : Boolean = {
-			var st=Stack[Character]()
-					var i=0
-					for(i <- 0 to s.length()-1){
-						var in=s.charAt(i)
-								if(st.isEmpty){
-									if(in.equals(')') || in.equals(']') || in.equals('}')){
-										return false
-									}else{
-										st.push(in)
-									}      
-								}else{       
-									if(in.equals('(') || in.equals('[') || in.equals('{')){
-										st.push(in)
-									}else{
-										var top=st.top
-												if(top.equals('(') || top.equals('[') || top.equals('{')){
-													st.pop()
-												}else{
-													st.push(in)
-												}
-									}
-								}      
-					}
-			if(st.isEmpty)
-				return true
-						else
-							return false
-	}
-
-	print(isBalanced("[]{(){}}"))
+def isBalanced(s: String) : Boolean = {
+var st=Stack[Character]()
+var i=0
+for(i <- 0 to s.length()-1){
+var in=s.charAt(i)
+if(st.isEmpty){
+if(in.equals(')') || in.equals(']') || in.equals('}')){
+return false
+}else{
+st.push(in)
+}      
+}else{       
+if(in.equals('(') || in.equals('[') || in.equals('{')){
+st.push(in)
+}else{
+var top=st.top
+if(top.equals('(') || top.equals('[') || top.equals('{')){
+st.pop()
+}else{
+st.push(in)
+}
+}
+}      
+}
+if(st.isEmpty)
+return true
+else
+return false
+}
+print(isBalanced("[]{(){}}"))
 }
